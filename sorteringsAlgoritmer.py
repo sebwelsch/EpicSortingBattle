@@ -21,6 +21,11 @@ def bogoSort(items):
     print('Sorteret efter {} forsøg'.format(attempts))
     return items
 
+    def selectionSort():
+        items = items.copy()
+        for j in items:
+            
+
 
 if __name__ == '__main__':
     for i in range(10):
