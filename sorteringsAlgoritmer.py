@@ -26,10 +26,11 @@ def InerstionSort(items):
     items = items.copy()
     i = 0
     for j in items:
-        if items[i] < items[i-1]:
+        if items[i] > items[i-1]:
             gem = items[i-1]
             items[i-1]=items[i]
             items[i] = gem
+    return items
 
 
 if __name__ == '__main__':
