@@ -23,8 +23,9 @@ def bogoSort(items):
 
     def selectionSort():
         items = items.copy()
-        for j in items:
-            
+        for x in items:
+
+
 
 
 if __name__ == '__main__':
