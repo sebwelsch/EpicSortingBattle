@@ -33,6 +33,12 @@ def InerstionSort(items):
     return items
 
 
+    def selectionSort():
+        items = items.copy()
+        for j in items:
+
+
+
 if __name__ == '__main__':
     for i in range(10):
         listen = list(range(1, 8))
