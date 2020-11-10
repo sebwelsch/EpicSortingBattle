@@ -34,11 +34,14 @@ def InsertionSort(items):
 
 
 def selectionSort():
+    # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
-    i = 0
-    for j in items:
-            if items[i] > items[i+1]:
-                    i+1
+    print(items)
+    for i in range(len(items)):
+        print(i)
+        for j in range(i+1, len(items)):
+            if items[i] > items[j]:
+                i = j
 
 
 
