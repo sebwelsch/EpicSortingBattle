@@ -33,10 +33,14 @@ def InsertionSort(items):
     return items
 
 
-    def selectionSort():
-        items = items.copy()
-        for x in items:
-            
+def selectionSort():
+    items = items.copy()
+    i = 0
+    for j in items:
+            if items[i] > items[i+1]:
+                    i+1
+
+
 
 if __name__ == '__main__':
     for i in range(10):
