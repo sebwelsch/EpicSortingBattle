@@ -21,7 +21,7 @@ def bogoSort(items):
     print('Sorteret efter {} forsøg'.format(attempts))
     return items
 
-def InerstionSort(items):
+def InsertionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
     i = 0
@@ -36,14 +36,12 @@ def InerstionSort(items):
     def selectionSort():
         items = items.copy()
         for x in items:
-
-
-
+            
 
 if __name__ == '__main__':
     for i in range(10):
         listen = list(range(1, 8))
-        sorteret = InerstionSort(listen)
+        sorteret = selectionSort(listen)
         random.shuffle(listen)
         print('Shuffled:\t', listen)
         print('Sorted:\t\t', sorteret)
