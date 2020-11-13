@@ -21,29 +21,29 @@ def bogoSort(items):
     print('Sorteret efter {} forsøg'.format(attempts))
     return items
 
-def InerstionSort(items):
+def InsertionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
-    i = 0
-    for j in items:
-        if items[i] > items[i-1]:
-            gem = items[i-1]
-            items[i-1]=items[i]
-            items[i] = gem
+    print(items)
+    for i in range(1,len(items)):
+        print(i)
+        for j in range(i,0,-1):
+            print(j)
+            gem = 0
+            if items[i] > items[j-1]:
+                gem = items[j-1]
+                items[j-1]=items[i]
+                items[i] = gem
+            print(items)
     return items
-
-
-    def selectionSort():
-        items = items.copy()
-        for j in items:
 
 
 
 if __name__ == '__main__':
-    for i in range(10):
+    for i in range(2):
         listen = list(range(1, 8))
-        sorteret = InerstionSort(listen)
         random.shuffle(listen)
+        sorteret = InsertionSort(listen)
         print('Shuffled:\t', listen)
         print('Sorted:\t\t', sorteret)
         print('==============================================================')
