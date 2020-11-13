@@ -25,11 +25,7 @@ def InsertionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
     for i in range(0,len(items)):
-        print(items)
-        print(i)
-        print(items[i])
         for j in range(i,0,-1):
-            print(items[j])
             if items[j-1] > items[j]:
                 save = items[j-1]
                 items[j-1] = items[j]
@@ -57,7 +53,7 @@ def selectionSort(items):
 
 
 if __name__ == '__main__':
-    for i in range(1):
+    for i in range(8):
         listen = list(range(1, 8))
         random.shuffle(listen)
         sorteret = InsertionSort(listen)
