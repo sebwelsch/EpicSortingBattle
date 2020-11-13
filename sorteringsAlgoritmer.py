@@ -38,6 +38,15 @@ def InsertionSort(items):
     return items
 
 
+def selectionSort():
+    # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
+    items = items.copy()
+    print(items)
+    for i in range(len(items)):
+        print(i)
+        for j in range(i+1, len(items)):
+            if items[i] > items[j]:
+                i = j
 
 if __name__ == '__main__':
     for i in range(2):
