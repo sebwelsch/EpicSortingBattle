@@ -24,17 +24,18 @@ def bogoSort(items):
 def InsertionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
-    print(items)
-    for i in range(1,len(items)):
+    for i in range(0,len(items)):
+        print(items)
         print(i)
-        for j in range(i,0,-1):
-            print(j)
-            gem = 0
-            if items[i] > items[j-1]:
-                gem = items[j-1]
-                items[j-1]=items[i]
-                items[i] = gem
-            print(items)
+        print(items[i])
+        for j in range(i,-1,-1):
+            print(items[j])
+            if items[j-1] > items[j]:
+                save = items[j-1]
+                print(items[i])
+                items[j-1] = items[j]
+                items[j] = save
+                #for k in range(j,-1,-1):
     return items
 
 
@@ -49,7 +50,7 @@ def selectionSort():
                 i = j
 
 if __name__ == '__main__':
-    for i in range(2):
+    for i in range(1):
         listen = list(range(1, 8))
         random.shuffle(listen)
         sorteret = InsertionSort(listen)
