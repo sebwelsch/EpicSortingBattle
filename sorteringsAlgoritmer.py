@@ -28,14 +28,12 @@ def InsertionSort(items):
         print(items)
         print(i)
         print(items[i])
-        for j in range(i,-1,-1):
+        for j in range(i,0,-1):
             print(items[j])
             if items[j-1] > items[j]:
                 save = items[j-1]
-                print(items[i])
                 items[j-1] = items[j]
                 items[j] = save
-                #for k in range(j,-1,-1):
     return items
 
 
@@ -62,7 +60,7 @@ if __name__ == '__main__':
     for i in range(1):
         listen = list(range(1, 8))
         random.shuffle(listen)
-        sorteret = selectionSort(listen)
+        sorteret = InsertionSort(listen)
         print('Shuffled:\t', listen)
         print('Sorted:\t\t', sorteret)
         print('==============================================================')
