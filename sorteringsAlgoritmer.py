@@ -41,7 +41,7 @@ def SelectionSort(items):
         print('i',i)
         for j in range(i+1, len(items)):
             print('j',j)
-            if items[j] < items[i]:
+            if items[i] > items[j]:
                 save = items[j]
                 print('save er',save)
                 indexj = j
@@ -57,9 +57,18 @@ def SelectionSort(items):
         items[i] = save
     return items
 
+
 def MergeSort(items):
     items = items.copy()
-    holder = [None] * len(items)
+    holder = [None]
+    for i in range(0,len(items)):
+        if i % len(items)/2 == 0:
+            for j in range(0,int(len(items)/2)):
+                holder.append(items[j])
+                print(holder)
+            if holder < len(items)+1: #+1 fordi første værdi er None
+                items[len(items)]
+
 
 
 if __name__ == '__main__':
