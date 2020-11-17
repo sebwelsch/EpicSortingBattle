@@ -24,22 +24,22 @@ def bogoSort(items):
 def InsertionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
-    for i in range(0,len(items)):
-        for j in range(i,0,-1):
+    for i in range(0,len(items)): #En pointer der gå fra venstre til højre i hele listen
+        for j in range(i,0,-1): #Liste der går fra hvorend i er nået til og tilbage til 0
             if items[j-1] > items[j]:
-                items[j-1], items[j] = items[j], items[j-1]
+                items[j-1], items[j] = items[j], items[j-1] #Dette bytter om på værdierne på pladsen j og j-1
     return items
 
 
 def SelectionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
-    for i in range(len(items)):
-        indexMin = i
-        for j in range(i+1, len(items)):
+    for i in range(len(items)): #En pointer der gå fra venstre til højre i hele listen
+        indexMin = i #Starter med at sætte den mindste værdi til i
+        for j in range(i+1, len(items)): #Herefter tjekker denne løkke om der er nogle mindre tal til højre for i i listen
             if items[j] < items[indexMin]:
                 indexMin = j
-        items[i], items[indexMin] = items[indexMin], items[i]
+        items[i], items[indexMin] = items[indexMin], items[i] #Hvis der er en mindre værdi bliver værdierne byttet om.
     return items
 
 
