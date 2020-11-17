@@ -33,30 +33,40 @@ def InsertionSort(items):
     return items
 
 
-def selectionSort(items):
+def SelectionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
     print(items)
     for i in range(0,len(items)):
+        print('i',i)
         for j in range(i+1, len(items)):
+            print('j',j)
             if items[j] < items[i]:
                 save = items[j]
-                mindst = j
+                print('save er',save)
+                indexj = j
                 if items[j] < save:
                     items[j] = save
-                    mindst = j
+                    indexj = j
+                    print('save er ',save)
+                    print('indexj er ',indexj)
             else:
-                save = items[i+1]
-        items[mindst]=items[i]
+                save = items[i]
+                indexj = i
+        items[indexj]=items[i]
         items[i] = save
     return items
 
+def MergeSort(items):
+    items = items.copy()
+    holder = [None] * len(items)
+
 
 if __name__ == '__main__':
-    for i in range(8):
+    for i in range(2):
         listen = list(range(1, 8))
         random.shuffle(listen)
-        sorteret = InsertionSort(listen)
+        sorteret = MergeSort(listen)
         print('Shuffled:\t', listen)
         print('Sorted:\t\t', sorteret)
         print('==============================================================')
