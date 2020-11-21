@@ -47,22 +47,57 @@ def SelectionSort(items):
 
 # def MergeSort(items):
 #     items = items.copy()
-#     holder = [None]
+#     holder = []
 #     for i in range(0,len(items)):
 #         if i % len(items)/2 == 0:
 #             for j in range(0,int(len(items)/2)):
 #                 holder.append(items[j])
 #                 print(holder)
-#             if holder < len(items)+1: #+1 fordi første værdi er None
+#             if holder < len(items):
 #                 items[len(items)]
+#     return items
 
+def MergeSort(items):
+    items = items.copy()
+    if len(items) > 1:
+        mid = len(items)//2 #Jeg bruger "//" for ikke at få decimaler
+        arr1 = items[:mid] #items[:mid] = items[0,mid]
+        arr2 = items[mid:]#items[mid:] = items[mid,len(items)]
+        
+        print(arr1, arr2)
+
+        MergeSort(arr1) #Kører funktionen igennem med to nye arrays som er items splittet op i 2
+        MergeSort(arr2)
+
+        a1 = a2 = i = 0
+        while a1 < len(arr1) and a2 < len(arr2):
+            if arr1[a1] < arr2[a2]:
+                items[i] = arr1[a1]
+                a1 += 1
+            else:
+                items[i] = arr2[a2]
+                a2 += 1
+            i += 1
+
+            print(arr1, arr2, items)
+
+            while a1 < len(arr1):
+                items[i] = arr1[a1]
+                a1 += 1
+                i += 1
+
+            while a2 < len(arr2):
+                items[i] = arr2[a2]
+                a2 += 1
+                i += 1
+    return items
 
 
 if __name__ == '__main__':
     for i in range(2):
         listen = list(range(1, 8))
         random.shuffle(listen)
-        sorteret = SelectionSort(listen)
+        sorteret = MergeSort(listen)
         print('Shuffled:\t', listen)
         print('Sorted:\t\t', sorteret)
         print('==============================================================')
