@@ -63,7 +63,7 @@ def MergeSort(items):
         mid = len(items)//2 #Jeg bruger "//" for ikke at få decimaler
         arr1 = items[:mid] #items[:mid] = items[0,mid]
         arr2 = items[mid:]#items[mid:] = items[mid,len(items)]
-        
+
         print(arr1, arr2)
 
         MergeSort(arr1) #Kører funktionen igennem med to nye arrays som er items splittet op i 2
@@ -92,12 +92,21 @@ def MergeSort(items):
                 i += 1
     return items
 
+def BubbleSort(items):
+    items = items.copy()
+    for i in range(len(items)):
+        for j in range(0, len(items)-i-1):
+            if items[j] > items[j+1]:
+                items[j], items[j+1] = items[j+1], items[j]
+    return items
+
+
 
 if __name__ == '__main__':
-    for i in range(2):
+    for i in range(8):
         listen = list(range(1, 8))
         random.shuffle(listen)
-        sorteret = MergeSort(listen)
+        sorteret = BubbleSort(listen)
         print('Shuffled:\t', listen)
         print('Sorted:\t\t', sorteret)
         print('==============================================================')
