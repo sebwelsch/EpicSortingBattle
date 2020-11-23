@@ -26,8 +26,8 @@ import random, math, sys
 def InsertionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
-    for i in range(0,len(items)): #En pointer der gå fra venstre til højre i hele listen
-        for j in range(i,0,-1): #Liste der går fra hvorend i er nået til og tilbage til 0
+    for i in range(0,len(items)): # En pointer der gå fra venstre til højre i hele listen
+        for j in range(i,0,-1): # Liste der går fra hvorend i er nået til og tilbage til 0
             if items[j-1] > items[j]:
                 items[j-1], items[j] = items[j], items[j-1] #Dette bytter om på værdierne på pladsen j og j-1
     return items
@@ -36,9 +36,9 @@ def InsertionSort(items):
 def SelectionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
-    for i in range(len(items)): #En pointer der gå fra venstre til højre i hele listen
-        indexMin = i #Starter med at sætte den mindste værdi til i
-        for j in range(i+1, len(items)): #Herefter tjekker denne løkke om der er nogle mindre tal til højre for i i listen
+    for i in range(len(items)): # En pointer der går fra venstre til højre i hele listen
+        indexMin = i # Starter med at sætte den mindste værdi til i
+        for j in range(i+1, len(items)): # Herefter tjekker denne løkke om der er nogle mindre tal til højre for i i listen
             if items[j] < items[indexMin]:
                 indexMin = j
         items[i], items[indexMin] = items[indexMin], items[i] #Hvis der er en mindre værdi bliver værdierne byttet om.
@@ -60,13 +60,13 @@ def SelectionSort(items):
 def MergeSort(items):
     items = items.copy()
     if len(items) > 1:
-        mid = len(items)//2 #Jeg bruger "//" for ikke at få decimaler
-        arr1 = items[:mid] #items[:mid] = items[0,mid]
-        arr2 = items[mid:]#items[mid:] = items[mid,len(items)]
+        mid = len(items)//2 # Jeg bruger "//" for ikke at få decimaler
+        arr1 = items[:mid] # items[:mid] = items[0,mid]
+        arr2 = items[mid:]# items[mid:] = items[mid,len(items)]
 
         print(arr1, arr2)
 
-        MergeSort(arr1) #Kører funktionen igennem med to nye arrays som er items splittet op i 2
+        MergeSort(arr1) # Kører funktionen igennem med to nye arrays som er items splittet op i 2
         MergeSort(arr2)
 
         a1 = a2 = i = 0
@@ -93,11 +93,11 @@ def MergeSort(items):
     return items
 
 def BubbleSort(items):
-    items = items.copy()
-    for i in range(len(items)):
-        for j in range(0, len(items)-i-1):
+    items = items.copy() # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
+    for i in range(len(items)): # En pointer der går fra venstre til højre i hele listen
+        for j in range(0, len(items)-i-1): # Liste der går fra plads 0 og ?
             if items[j] > items[j+1]:
-                items[j], items[j+1] = items[j+1], items[j]
+                items[j], items[j+1] = items[j+1], items[j] # Bytter om på værdierne
     return items
 
 
