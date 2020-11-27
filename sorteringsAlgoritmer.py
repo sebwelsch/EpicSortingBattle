@@ -64,6 +64,7 @@ def MergeSort(items):
         arr1 = items[:mid] # items[:mid] = items[0,mid]
         arr2 = items[mid:]# items[mid:] = items[mid,len(items)]
 
+        print(1)
         print(arr1, arr2)
 
         MergeSort(arr1) # Kører funktionen igennem med to nye arrays som er items splittet op i 2
@@ -79,6 +80,7 @@ def MergeSort(items):
                 a2 += 1
             i += 1
 
+            print(2)
             print(arr1, arr2, items)
 
             while a1 < len(arr1):
@@ -97,16 +99,16 @@ def BubbleSort(items):
     for i in range(len(items)): # En pointer der går fra venstre til højre i hele listen
         for j in range(0, len(items)-i-1): # Liste der går fra plads 0 og ?
             if items[j] > items[j+1]:
-                items[j], items[j+1] = items[j+1], items[j] # Bytter om på værdierne
+                items[j], items[j+1] = items[j+1], items[j] # Bytter om på værdierne hivs j er større end j+1
     return items
 
 
 
 if __name__ == '__main__':
-    for i in range(8):
+    for i in range(1):
         listen = list(range(1, 8))
         random.shuffle(listen)
-        sorteret = BubbleSort(listen)
+        sorteret = MergeSort(listen)
         print('Shuffled:\t', listen)
         print('Sorted:\t\t', sorteret)
         print('==============================================================')
