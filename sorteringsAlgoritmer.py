@@ -54,21 +54,13 @@ def MergeSort(items):
         arr1 = items[:mid] # items[:mid] = items[0,mid]
         arr2 = items[mid:]# items[mid:] = items[mid,len(items)]
 
-        MergeSort(arr1) # Kører funktionen igennem med to nye arrays som er items splittet op i 2
-        MergeSort(arr2)
+        if len(arr1) > 1: #Så længe listen er over 1 lang skal den splittes
+            arr1 = MergeSort(arr1) #Kører funktionen igennem med to nye arrays som er items splittet op i 2
+        if len(arr2) > 1:
+            arr2 = MergeSort(arr2)
 
         out = [] #laver en ny tom liste.
         while len(out) < len(items): #Og holder en løkke igang så længe out listen er kortere end den originale liste
-
-            if len(arr1) > 2: #Det grimme fiks der gør at hvis længden af listen er 2 så skal den bytte talene rundt.
-                arr1 = MergeSort(arr1)
-            elif len(arr1) == 2 and arr1[0] > arr1[1]:
-                arr1[0], arr1[1] = arr1[1], arr1[0]
-
-            if len(arr2) > 2:
-                arr2 = MergeSort(arr2)
-            elif len(arr2) == 2 and arr2[0] > arr2[1]:
-                arr2[0], arr2[1] = arr2[1], arr2[0] #Fikset går her til
 
             if len(arr1) > 0 and len(arr2) > 0: #Så længe der er noget i listerne
                 if arr1[0] < arr2[0]: #Hvis array 1 er mindre end array 2
@@ -80,7 +72,7 @@ def MergeSort(items):
                     out.append(arr2.pop(0)) #Sæt array 2 ind
                 elif len(arr2) == 0: #Repeat men med array 2
                     out.append(arr1.pop(0)) #Sæt array 1 ind
-        return out
+    return out
 
 
 
