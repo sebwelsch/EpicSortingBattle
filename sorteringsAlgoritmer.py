@@ -33,6 +33,7 @@ def InsertionSort(items):
     return items
 
 
+
 def SelectionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
@@ -45,17 +46,6 @@ def SelectionSort(items):
     return items
 
 
-# def MergeSort(items):
-#     items = items.copy()
-#     holder = []
-#     for i in range(0,len(items)):
-#         if i % len(items)/2 == 0:
-#             for j in range(0,int(len(items)/2)):
-#                 holder.append(items[j])
-#                 print(holder)
-#             if holder < len(items):
-#                 items[len(items)]
-#     return items
 
 def MergeSort(items):
     items = items.copy()
@@ -64,35 +54,35 @@ def MergeSort(items):
         arr1 = items[:mid] # items[:mid] = items[0,mid]
         arr2 = items[mid:]# items[mid:] = items[mid,len(items)]
 
-        print(1)
-        print(arr1, arr2)
-
         MergeSort(arr1) # Kører funktionen igennem med to nye arrays som er items splittet op i 2
         MergeSort(arr2)
 
-        a1 = a2 = i = 0
-        while a1 < len(arr1) and a2 < len(arr2):
-            if arr1[a1] < arr2[a2]:
-                items[i] = arr1[a1]
-                a1 += 1
-            else:
-                items[i] = arr2[a2]
-                a2 += 1
-            i += 1
+        out = [] #laver en ny tom liste.
+        while len(out) < len(items): #Og holder en løkke igang så længe out listen er kortere end den originale liste
 
-            print(2)
-            print(arr1, arr2, items)
+            if len(arr1) > 2: #Det grimme fiks der gør at hvis længden af listen er 2 så skal den bytte talene rundt.
+                arr1 = MergeSort(arr1)
+            elif len(arr1) == 2 and arr1[0] > arr1[1]:
+                arr1[0], arr1[1] = arr1[1], arr1[0]
 
-            while a1 < len(arr1):
-                items[i] = arr1[a1]
-                a1 += 1
-                i += 1
+            if len(arr2) > 2:
+                arr2 = MergeSort(arr2)
+            elif len(arr2) == 2 and arr2[0] > arr2[1]:
+                arr2[0], arr2[1] = arr2[1], arr2[0] #Fikset går her til
 
-            while a2 < len(arr2):
-                items[i] = arr2[a2]
-                a2 += 1
-                i += 1
-    return items
+            if len(arr1) > 0 and len(arr2) > 0: #Så længe der er noget i listerne
+                if arr1[0] < arr2[0]: #Hvis array 1 er mindre end array 2
+                    out.append(arr1.pop(0)) #Sæt den første værdi af array 1 ind i out listen
+                else:
+                    out.append(arr2.pop(0)) #ellers sæt den første værdi af array 2 ind i out listen
+            else: #Hvis den ene af listerne har ramt nul skal resten af den anden liste ind
+                if len(arr1) == 0: #Hvis array 1 er tom
+                    out.append(arr2.pop(0)) #Sæt array 2 ind
+                elif len(arr2) == 0: #Repeat men med array 2
+                    out.append(arr1.pop(0))
+        return out
+
+
 
 def BubbleSort(items):
     items = items.copy() # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
