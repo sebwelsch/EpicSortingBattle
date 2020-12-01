@@ -79,7 +79,7 @@ def MergeSort(items):
                 if len(arr1) == 0: #Hvis array 1 er tom
                     out.append(arr2.pop(0)) #Sæt array 2 ind
                 elif len(arr2) == 0: #Repeat men med array 2
-                    out.append(arr1.pop(0))
+                    out.append(arr1.pop(0)) #Sæt array 1 ind
         return out
 
 
