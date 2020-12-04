@@ -23,7 +23,7 @@ import random, math, sys
 #     return items
 
 
-def InsertionSort(items):
+def insertionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
     for i in range(0,len(items)): # En pointer der gå fra venstre til højre i hele listen
@@ -34,7 +34,7 @@ def InsertionSort(items):
 
 
 
-def SelectionSort(items):
+def selectionSort(items):
     # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     items = items.copy()
     for i in range(len(items)): # En pointer der går fra venstre til højre i hele listen
@@ -47,7 +47,7 @@ def SelectionSort(items):
 
 
 
-def MergeSort(items):
+def mergeSort(items):
     items = items.copy()
     if len(items) > 1:
         mid = len(items)//2 # Jeg bruger "//" for ikke at få decimaler
@@ -76,7 +76,7 @@ def MergeSort(items):
 
 
 
-def BubbleSort(items):
+def bubbleSort(items):
     items = items.copy() # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     for i in range(len(items)): # En pointer der går fra venstre til højre i hele listen
         for j in range(0, len(items)-i-1): # Liste der går fra plads 0 og ?
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     for i in range(1):
         listen = list(range(1, 8))
         random.shuffle(listen)
-        sorteret = MergeSort(listen)
+        sorteret = mergeSort(listen)
         print('Shuffled:\t', listen)
         print('Sorted:\t\t', sorteret)
         print('==============================================================')
