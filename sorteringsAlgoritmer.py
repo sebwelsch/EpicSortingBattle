@@ -55,9 +55,9 @@ def mergeSort(items):
         arr2 = items[mid:]# items[mid:] = items[mid,len(items)]
 
         if len(arr1) > 1: #Så længe listen er over 1 lang skal den splittes
-            arr1 = MergeSort(arr1) #Kører funktionen igennem med to nye arrays som er items splittet op i 2
+            arr1 = mergeSort(arr1) #Kører funktionen igennem med to nye arrays som er items splittet op i 2
         if len(arr2) > 1:
-            arr2 = MergeSort(arr2)
+            arr2 = mergeSort(arr2)
 
         out = [] #laver en ny tom liste.
         while len(out) < len(items): #Og holder en løkke igang så længe out listen er kortere end den originale liste
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     for i in range(1):
         listen = list(range(1, 8))
         random.shuffle(listen)
-        sorteret = mergeSort(listen)
+        sorteret = insertionSort(listen)
         print('Shuffled:\t', listen)
         print('Sorted:\t\t', sorteret)
         print('==============================================================')
