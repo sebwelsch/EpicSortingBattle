@@ -79,7 +79,7 @@ def mergeSort(items):
 def bubbleSort(items):
     items = items.copy() # Kopier den liste, vi har modtaget som parameter, så vi ikke ændrer den originale
     for i in range(len(items)): # En pointer der går fra venstre til højre i hele listen
-        for j in range(0, len(items)-i-1): # Liste der går fra plads 0 til næstsidste plads
+        for j in range(0, len(items)-1): # Liste der går fra plads 0 til næstsidste plads
             if items[j] > items[j+1]:
                 items[j], items[j+1] = items[j+1], items[j] # Bytter om på værdierne hivs j er større end j+1
     return items
